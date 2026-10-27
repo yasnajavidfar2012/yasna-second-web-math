@@ -1,0 +1,266 @@
+```
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>دنیای جادویی مجموعه‌ها ✨</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700;800&display=swap');
+
+*{box-sizing:border-box}
+
+body{
+  margin:0;
+  font-family:Vazirmatn,Tahoma,sans-serif;
+  color:white;
+  text-align:center;
+  background:linear-gradient(135deg,#180d35,#603b91,#24265d);
+  min-height:100vh;
+}
+
+header{padding:35px 15px 20px}
+
+h1{color:#ffe6a6;font-size:30px}
+
+header p{color:#e8dfff;line-height:2}
+
+nav{display:flex;justify-content:center;gap:8px;flex-wrap:wrap}
+
+button{
+  font-family:inherit;
+  cursor:pointer;
+  border:0;
+  border-radius:14px;
+  padding:11px 16px;
+  font-weight:bold;
+  transition:.25s;
+}
+
+button:hover{transform:translateY(-3px)}
+
+nav button{background:#ffffff20;color:white}
+
+main{max-width:950px;margin:auto;padding:20px}
+
+.welcome,.quiz{
+  background:#ffffff13;
+  border:1px solid #ffffff30;
+  border-radius:25px;
+  padding:22px;
+  margin:20px 0;
+}
+
+.magic{font-size:55px;animation:float 2s infinite alternate}
+
+@keyframes float{
+  to{transform:translateY(-12px) rotate(8deg)}
+}
+
+h2{color:#ffdbf5}
+
+.cards{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(190px,1fr));
+  gap:15px;
+}
+
+.card{
+  padding:20px;
+  border-radius:23px;
+  color:#302047;
+  transition:.3s;
+}
+
+.card:hover{transform:translateY(-7px) rotate(-1deg)}
+
+.card:nth-child(1){background:#c5ffdf}
+.card:nth-child(2){background:#c9e5ff}
+.card:nth-child(3){background:#ffe8b3}
+.card:nth-child(4){background:#f1ccff}
+
+.symbol{font-size:38px;font-weight:800}
+.card p{line-height:1.9;font-size:14px}
+.card button{background:#ffffffc9;color:#302047}
+
+.lesson{
+  display:none;
+  background:#ffffff90;
+  padding:10px;
+  border-radius:12px;
+  margin-top:12px;
+  line-height:1.9;
+  font-size:13px;
+}
+
+.lesson.show{display:block}
+
+.quiz button{margin:5px}
+#options{margin:18px 0}
+#options button{background:#e7d9ff;color:#302047}
+#feedback{min-height:30px;color:#ffe6a6}
+#score{color:#aaffd2}
+
+footer{padding:25px;color:#d9c9ff}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="magic">🪄✨</div>
+  <h1>دنیای جادویی مجموعه‌ها</h1>
+  <p>یاد بگیر، کشف کن و جادوگر ریاضی شو! 🌙</p>
+  <nav>
+    <button onclick="go('learn')">📚 آموزش</button>
+    <button onclick="go('quiz')">🎮 بازی</button>
+  </nav>
+</header>
+
+<main>
+<section class="welcome">
+  <h2>🏰 به سرزمین اعداد خوش آمدی!</h2>
+  <p>مجموعه یعنی گروهی از اعضای مشخص؛ مثل A = {۱، ۲، ۳}.</p>
+  <p>۲ ∈ A یعنی عدد ۲ عضو مجموعه A است.</p>
+</section>
+
+<h2 id="learn">🔮 جزیره‌های عددی</h2>
+
+<section class="cards">
+
+  <article class="card">
+    <div class="symbol">ℕ 🌱</div>
+    <h3>اعداد طبیعی</h3>
+    <p>اعداد شمارشی: ۱، ۲، ۳، ۴، ...</p>
+    <button onclick="show('a')">کشف راز</button>
+    <div class="lesson" id="a">در این پروژه، صفر جزو اعداد طبیعی نیست.</div>
+  </article>
+
+  <article class="card">
+    <div class="symbol">ℤ ❄️</div>
+    <h3>اعداد صحیح</h3>
+    <p>اعداد منفی، صفر و مثبت.</p>
+    <button onclick="show('b')">کشف راز</button>
+    <div class="lesson" id="b">مثال: {...، ۳-، ۲-، ۱-، ۰، ۱، ۲، ۳، ...}</div>
+  </article>
+
+  <article class="card">
+    <div class="symbol">ℚ 🍯</div>
+    <h3>اعداد گویا</h3>
+    <p>عددهایی که می‌توان به شکل کسر نوشت.</p>
+    <button onclick="show('c')">کشف راز</button>
+    <div class="lesson" id="c">مثال: ۱/۲ و ۳ = ۳/۱. مخرج کسر نباید صفر باشد.</div>
+  </article>
+
+  <article class="card">
+    <div class="symbol">𝕀 💜</div>
+    <h3>اعداد گنگ</h3>
+    <p>عددهایی مثل √۲ و π.</p>
+    <button onclick="show('d')">کشف راز</button>
+    <div class="lesson" id="d">اعداد گنگ را نمی‌توان به صورت کسر دو عدد صحیح با مخرج ناصفر نوشت.</div>
+  </article>
+
+</section>
+
+<section class="welcome">
+  <h2>🌈 راز بزرگ مجموعه‌ها</h2>
+  <p>ℕ ⊆ ℤ ⊆ ℚ ⊆ ℝ</p>
+  <p>اعداد حقیقی از اعداد گویا و گنگ تشکیل می‌شوند.</p>
+</section>
+
+<section class="quiz" id="quiz">
+  <h2>🎮 آزمون جادویی</h2>
+  <p id="question"></p>
+  <div id="options"></div>
+  <p id="feedback"></p>
+  <p id="score">⭐ امتیاز: ۰</p>
+  <button onclick="next()" style="background:#ffe6a6">سؤال بعدی ✨</button>
+</section>
+</main>
+
+<footer>💜 ساخته شده با عشق به ریاضی 💜</footer>
+
+<script>
+function go(id){
+  document.getElementById(id).scrollIntoView({behavior:'smooth'});
+}
+
+function show(id){
+  document.getElementById(id).classList.toggle('show');
+}
+
+const qs=[
+  {q:'کدام عدد طبیعی است؟',o:['۳-','۵','√۲'],a:1},
+  {q:'کدام عدد گنگ است؟',o:['۱/۲','۴','√۲'],a:2},
+  {q:'کدام عدد صحیح نیست؟',o:['۰','۵-','۱/۲'],a:2},
+  {q:'عدد ۳/۴ گویاست؟',o:['بله','خیر'],a:0}
+];
+
+let i=0,score=0,done=false;
+
+function render(){
+  done=false;
+  document.getElementById('question').textContent=qs[i].q;
+  document.getElementById('feedback').textContent='';
+  const box=document.getElementById('options');
+  box.innerHTML='';
+
+  qs[i].o.forEach((answer,index)=>{
+    const b=document.createElement('button');
+    b.textContent=answer;
+    b.onclick=()=>check(index,b);
+    box.appendChild(b);
+  });
+}
+
+function check(index,btn){
+  if(done)return;
+  done=true;
+
+  if(index===qs[i].a){
+    score+=10;
+    document.getElementById('feedback').textContent='آفرین! پاسخ درست است 🎉';
+  }else{
+    document.getElementById('feedback').textContent=
+      'پاسخ درست: '+qs[i].o[qs[i].a]+' 🌷';
+  }
+
+  document.getElementById('score').textContent='⭐ امتیاز: '+score;
+
+  [...document.querySelectorAll('#options button')].forEach((b,n)=>{
+    b.disabled=true;
+    if(n===qs[i].a)b.style.background='#a9f5c8';
+    else if(n===index)b.style.background='#ffb7c8';
+  });
+}
+
+function next(){
+  if(i===qs.length-1){
+    i=0;
+    score=0;
+    document.getElementById('score').textContent='⭐ امتیاز: ۰';
+  }else{
+    i++;
+  }
+  render();
+}
+
+render();
+
+const stars=document.getElementById('stars');
+for(let n=0;n<45;n++){
+  const s=document.createElement('span');
+  s.className='star';
+  s.textContent=Math.random()>.5?'✦':'·';
+  s.style.left=Math.random()*100+'%';
+  s.style.top=Math.random()*100+'%';
+  s.style.fontSize=(8+Math.random()*15)+'px';
+  s.style.animationDelay=Math.random()*3+'s';
+  stars.appendChild(s);
+}
+</script>
+
+</body>
+</html>
+```x
